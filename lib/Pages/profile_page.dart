@@ -5,7 +5,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const Color primaryColor = Color.fromARGB(255, 32, 0, 66);
+    const Color primaryColor = Color(0xFF200042);
 
     return Scaffold(
       backgroundColor: Colors.grey[50],
