@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     print(emailController.text);
                     print(passwordController.text);
 
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const ProjetosPage(),
