@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_ativ/Pages/login_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -165,7 +166,14 @@ class ProfilePage extends StatelessWidget {
                   Expanded(
                     child: OutlinedButton(
                       onPressed: () {
-                        print('Logout Pressionado!');
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const MyHomePage(title: "MyHomePage"),
+                          ),
+                          (Route<dynamic> route) => false,
+                        );
                       },
                       style: OutlinedButton.styleFrom(
                         side: BorderSide(color: Colors.grey.shade300),
