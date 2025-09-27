@@ -1,8 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:login_ativ/Pages/login_page.dart';
+import 'package:login_ativ/Pages/projetos_page.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const ProjetosPage()),
+        );
+        break;
+      case 1:
+        break;
+      case 2:
+        ;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +40,7 @@ class ProfilePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 30.0),
         child: SafeArea(
+          // O conteúdo do seu body permaneceu o mesmo
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -59,7 +87,6 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 15),
-
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 decoration: BoxDecoration(
@@ -92,7 +119,6 @@ class ProfilePage extends StatelessWidget {
                       width: 1,
                       color: Colors.grey.shade300,
                     ),
-
                     const Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -111,13 +137,11 @@ class ProfilePage extends StatelessWidget {
                         ),
                       ],
                     ),
-
                     Container(
                       height: 40,
                       width: 1,
                       color: Colors.grey.shade300,
                     ),
-
                     const Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -140,7 +164,6 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
-
               Row(
                 children: [
                   Expanded(
@@ -162,7 +185,6 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 15),
-                  // Botão "Logout"
                   Expanded(
                     child: OutlinedButton(
                       onPressed: () {
@@ -197,6 +219,25 @@ class ProfilePage extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Início'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: 'Perfil',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message_outlined),
+            label: 'Mensagem',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: const Color(0xFF200042),
+        unselectedItemColor: Colors.grey,
+        onTap: _onItemTapped,
+        backgroundColor: Colors.white,
+        type: BottomNavigationBarType.fixed,
       ),
     );
   }
