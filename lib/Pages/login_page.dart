@@ -18,17 +18,18 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(height: 80), // espaço extra no topo
               Image.asset('assets/images/TitoGo.png', height: 230),
               const SizedBox(height: 10),
               const Text(
                 'Faça Seu Cadastro',
                 style: TextStyle(
-                  color: Color.fromARGB(255, 32, 0, 66), // Cor laranja da logo
+                  color: Color.fromARGB(255, 32, 0, 66),
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                   letterSpacing: 1.5,
@@ -60,24 +61,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: const Text(
                     'Esqueceu sua senha?',
                     style: TextStyle(
-                      color: Color.fromARGB(
-                        255,
-                        32,
-                        0,
-                        66,
-                      ), // Usa a mesma cor principal
+                      color: Color.fromARGB(255, 32, 0, 66),
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
               SizedBox(
                 width: 350,
                 child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
-                      const Color.fromARGB(255, 32, 0, 66),
+                      Color.fromARGB(255, 32, 0, 66),
                     ),
                   ),
                   onPressed: () {
@@ -104,6 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
+              SizedBox(height: 50),
             ],
           ),
         ),
